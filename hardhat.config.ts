@@ -1,18 +1,18 @@
 import "@nomicfoundation/hardhat-chai-matchers";
 import "@nomicfoundation/hardhat-ethers";
 import "@typechain/hardhat";
+// import "@tenderly/hardhat-tenderly";
+// import "hardhat-ethernal";
+import * as dotenv from "dotenv";
+import "hardhat-contract-sizer";
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
 import "hardhat-gas-reporter";
+import "hardhat-tracer";
 import { HardhatUserConfig } from "hardhat/config";
 import "solidity-coverage";
 import "tsconfig-paths/register";
-import "hardhat-contract-sizer";
-import "hardhat-tracer";
-// import "@tenderly/hardhat-tenderly";
-// import "hardhat-ethernal";
 
-import * as dotenv from "dotenv";
 dotenv.config();
 
 const config: HardhatUserConfig = {
@@ -51,13 +51,6 @@ const config: HardhatUserConfig = {
       live: false,
       saveDeployments: true,
       tags: ["dev"],
-    },
-    goerli: {
-      url: process.env.GOERLI_RPC_URL as string,
-      accounts: [process.env.GOERLI_DEPLOYER_KEY as string],
-      live: true,
-      saveDeployments: true,
-      tags: ["uat"],
     },
     sepolia: {
       url: process.env.SEPOLIA_RPC_URL as string,
